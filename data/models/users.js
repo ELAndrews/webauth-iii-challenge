@@ -27,8 +27,8 @@ function login({ username }) {
   return db("users").where({ username });
 }
 
-function register({ username, password }) {
-  return db("users").insert({ username, password });
+function register({ username, password, department }) {
+  return db("users").insert({ username, password, department });
 }
 
 function removeUserById(id) {

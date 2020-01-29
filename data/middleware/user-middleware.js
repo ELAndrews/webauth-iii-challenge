@@ -6,14 +6,16 @@ module.exports = {
 };
 
 function validateRequestFullBody(req, res, next) {
-  if (req.body.username && req.body.password) {
+  if (req.body.username && req.body.password && req.body.department) {
     next();
-  } else if (req.body.username || req.body.password) {
-    res.status(400).json(`Please provide a valide username AND password`);
+  } else if (req.body.username || req.body.password || req.body.department) {
+    res
+      .status(400)
+      .json(`Please provide a valide username, password AND department`);
   } else {
     res
       .status(400)
-      .json(`You must provide both a valide username AND password`);
+      .json(`You must provide a valide username, password AND department`);
   }
 }
 
